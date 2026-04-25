@@ -11,5 +11,5 @@ I am a Ph.D. student in the [Department of Government](https://liberalarts.utexa
 
 I previously completed an M.I.A. at the [Bush School of Government and Public Service](https://bush.tamu.edu/) at Texas A&M University.
 
-I can be contacted at goffgrahamc[at]gmail and my CV is available [here](/files/cv.pdf)
+I can be contacted at goffgrahamc[at]gmail and my CV is available [here](/files/cv.pdf).
 
