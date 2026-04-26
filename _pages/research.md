@@ -16,8 +16,8 @@ author_profile: true
 ## Working Papers
 
 **Aligning Estimands, Identification, and Conclusions** (with [Mike Denly](https://mikedenly.com)).  
-*Under review at the* [American Political Science Review](https://www.cambridge.org/core/journals/american-political-science-review).  
-Presented at TexMeth and the [Causal Data Science Meeting](https://www.causalscience.org).
+ - *Under review at the* [American Political Science Review](https://www.cambridge.org/core/journals/american-political-science-review).  
+ - Presented at TexMeth and the [Causal Data Science Meeting](https://www.causalscience.org).
 
 **[The Ties That Bind: The Ukraine War and African Food Dependency](/files/ties-that-bind.pdf).**
 
