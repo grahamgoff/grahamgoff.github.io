@@ -15,10 +15,12 @@ author_profile: true
 
 ## Working Papers
 
-**Decompose Before You Control: How Composite Index Covariates Conflate Causal Roles.**  
-
 **Aligning Estimands, Identification, and Conclusions** (with [Mike Denly](https://mikedenly.com)).  
  - *Under review at the* [American Political Science Review](https://www.cambridge.org/core/journals/american-political-science-review).  
  - Presented at TexMeth and the [Causal Data Science Meeting](https://www.causalscience.org).
 
 **[The Ties That Bind: The Ukraine War and African Food Dependency](/files/ties-that-bind.pdf).**
+
+## Works in Progress
+
+**Decompose Before You Control: How Composite Index Covariates Conflate Causal Roles.**  
