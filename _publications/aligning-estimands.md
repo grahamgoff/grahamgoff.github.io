@@ -10,6 +10,7 @@ venue: "Under review"
 venue_url: "https://www.cambridge.org/core/journals/american-political-science-review"
 venue_full: "American Political Science Review"
 presentations: "TexMeth; [Causal Data Science Meeting](https://www.causalscience.org)"
+image: /publications/aligning-estimands.png
 ---
 
 Abstract forthcoming.

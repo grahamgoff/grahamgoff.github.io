@@ -3,39 +3,41 @@
    Used by /research/ via _includes/archive-single-research.html
    ========================================================================== */
 
-.research-list__item {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.5em;
-  padding: 1em 0;
-  border-bottom: 1px solid #eee;
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2em;
+  margin-top: 1em;
 
-  &:last-child {
-    border-bottom: 0;
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
   }
 }
 
-.research-list__article {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.5em;
-  width: 100%;
+.research-list__item {
+  min-width: 0;
 }
 
-.research-list__body {
-  flex: 1 1 auto;
+.research-list__article {
+  display: block;
   min-width: 0;
+}
 
-  p {
-    margin: 0.25em 0;
-    font-size: 0.9em;
+.research-list__teaser {
+  display: block;
+  margin-bottom: 0.75em;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
   }
 }
 
 .research-list__title {
-  margin: 0 0 0.25em 0;
+  margin: 0 0 0.35em 0;
   font-size: 1.05em;
   line-height: 1.3;
 
@@ -44,34 +46,9 @@
   }
 }
 
-.research-list__authors {
+.research-list__meta {
+  margin: 0.25em 0 0 0;
+  font-size: 0.9em;
   font-style: italic;
-}
-
-.research-list__teaser {
-  flex: 0 0 140px;
-  max-width: 140px;
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 2px;
-  }
-
-  @media (max-width: 600px) {
-    flex-basis: 90px;
-    max-width: 90px;
-  }
-}
-
-/* Compact text-only rows (Prior Publications section) */
-.research-list--text-only {
-  .research-list__item {
-    padding: 0.6em 0;
-  }
-
-  .research-list__title {
-    font-size: 1em;
-  }
+  line-height: 1.4;
 }
