@@ -37,13 +37,9 @@ layout: default
         {% if page.collection == 'teaching' %}
           <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.collection == 'publications' and page.category == 'working' %}
-          {% if page.authors %}<p>{{ page.authors | markdownify | remove: "<p>" | remove: "</p>" }}</p>{% endif %}
-          {% if page.venue_url and page.venue_full %}
-            <p>Under review at the <a href="{{ page.venue_url }}"><em>{{ page.venue_full }}</em></a>.</p>
-          {% elsif page.venue %}
-            <p><em>{{ page.venue }}</em></p>
+          {% if page.authors or page.presentations %}
+            <p>{% if page.authors %}{{ page.authors | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}{% if page.authors and page.presentations %}. {% endif %}{% if page.presentations %}Presented at {{ page.presentations | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}.</p>
           {% endif %}
-          {% if page.presentations %}<p>Presented at {{ page.presentations | markdownify | remove: "<p>" | remove: "</p>" }}.</p>{% endif %}
         {% elsif page.collection == 'publications' %}
           {% if page.authors %}<p>{{ page.authors | markdownify | remove: "<p>" | remove: "</p>" }}</p>{% endif %}
           {% if page.venue %}<p><em>{{ page.venue }}</em>{% if page.date %}, {{ page.date | date: "%Y" }}{% endif %}{% if page.citation %}, {{ page.citation }}{% endif %}.</p>{% endif %}
