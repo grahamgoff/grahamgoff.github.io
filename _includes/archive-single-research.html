@@ -2,18 +2,18 @@
 
 <div class="research-list__item">
   <article class="research-list__article" itemscope itemtype="http://schema.org/CreativeWork">
-    {% if post.image %}
-      <a class="research-list__teaser" href="{{ base_path }}{{ post.url }}">
-        <img src="{{ post.image }}" alt="">
-      </a>
-    {% endif %}
-
     <h3 class="research-list__title" itemprop="headline">
       <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
     </h3>
 
     {% if post.authors or post.presentations %}
       <p class="research-list__meta">{% if post.authors %}{{ post.authors | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}{% if post.authors and post.presentations %}. {% endif %}{% if post.presentations %}Presented at {{ post.presentations | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}.</p>
+    {% endif %}
+
+    {% if post.image %}
+      <a class="research-list__teaser" href="{{ base_path }}{{ post.url }}">
+        <img src="{{ post.image }}" alt="">
+      </a>
     {% endif %}
   </article>
 </div>
