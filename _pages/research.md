@@ -5,22 +5,25 @@ permalink: /research/
 author_profile: true
 ---
 
-## Peer-Reviewed Publications
+{% assign working = site.publications | where: "category", "working" | where_exp: "p", "p.listed != false" | sort: "date" | reverse %}
+{% assign prior = site.publications | where: "category", "prior" | where_exp: "p", "p.listed != false" | sort: "date" | reverse %}
 
-**[Kafala as Fatal Strategy: A Historical and Critical Analysis of the Qatari Kafala System](/files/kafala.pdf)** (with L.E. Chenault).  
-*Consumption Markets & Culture*, 2025, 28(4): 286–298.
-
-**[Ascetic Protestantism as Fatal Strategy](/files/fatal-strategy.pdf).**  
-*Consumption Markets & Culture*, 2024, 27(3): 284–294.
-
+{% if working.size > 0 %}
 ## Working Papers
 
-**Aligning Estimands, Identification, and Conclusions** (with [Mike Denly](https://mikedenly.com)).  
- - *Under review at the* [American Political Science Review](https://www.cambridge.org/core/journals/american-political-science-review).  
- - Presented at TexMeth and the [Causal Data Science Meeting](https://www.causalscience.org).
+<div class="research-list">
+  {% for post in working %}
+    {% include archive-single-research.html %}
+  {% endfor %}
+</div>
+{% endif %}
 
-**[The Ties That Bind: The Ukraine War and African Food Dependency](/files/ties-that-bind.pdf).**
+{% if prior.size > 0 %}
+## Prior Publications
 
-## Works in Progress
-
-**Decompose Before You Control: How Composite Index Covariates Conflate Causal Roles.**  
+<div class="research-list research-list--text-only">
+  {% for post in prior %}
+    {% include archive-single-research.html text_only=true %}
+  {% endfor %}
+</div>
+{% endif %}

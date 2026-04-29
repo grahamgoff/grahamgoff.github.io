@@ -1,0 +1,41 @@
+{% include base_path %}
+
+{% assign has_teaser = false %}
+{% if post.header.teaser and include.text_only != true %}
+  {% assign has_teaser = true %}
+{% endif %}
+
+<div class="research-list__item{% if has_teaser %} research-list__item--with-teaser{% endif %}">
+  <article class="research-list__article" itemscope itemtype="http://schema.org/CreativeWork">
+    <div class="research-list__body">
+      <h3 class="research-list__title" itemprop="headline">
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
+      </h3>
+
+      {% if post.authors %}
+        <p class="research-list__authors">{{ post.authors | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+      {% endif %}
+
+      {% if post.category == 'working' %}
+        {% if post.venue and post.venue_url and post.venue_full %}
+          <p class="research-list__venue">Under review at the <a href="{{ post.venue_url }}"><em>{{ post.venue_full }}</em></a>.</p>
+        {% elsif post.venue %}
+          <p class="research-list__venue"><em>{{ post.venue }}</em></p>
+        {% endif %}
+        {% if post.presentations %}
+          <p class="research-list__presentations">Presented at {{ post.presentations | markdownify | remove: "<p>" | remove: "</p>" }}.</p>
+        {% endif %}
+      {% elsif post.venue %}
+        <p class="research-list__venue"><em>{{ post.venue }}</em>{% if post.date %}, {{ post.date | date: "%Y" }}{% endif %}{% if post.citation %}, {{ post.citation }}{% endif %}.</p>
+      {% endif %}
+    </div>
+
+    {% if has_teaser %}
+      <div class="research-list__teaser">
+        <a href="{{ base_path }}{{ post.url }}">
+          <img src="{% if post.header.teaser contains '://' %}{{ post.header.teaser }}{% else %}{{ post.header.teaser | prepend: '/images/' | prepend: base_path }}{% endif %}" alt="">
+        </a>
+      </div>
+    {% endif %}
+  </article>
+</div>
