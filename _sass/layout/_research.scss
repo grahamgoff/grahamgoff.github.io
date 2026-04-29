@@ -6,10 +6,11 @@
 .research-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: auto auto auto;
-  column-gap: 2em;
+  grid-template-rows: auto auto 1fr;
+  column-gap: 2.5em;
   row-gap: 0.5em;
   margin-top: 1em;
+  margin-bottom: 2em;
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
@@ -18,9 +19,12 @@
   }
 }
 
-/* On wide screens, each card spans 3 rows of the outer grid via subgrid,
-   so titles align with titles, metas with metas, and images with images
-   regardless of how many lines each section takes. */
+/* On wide screens each card spans 3 rows of the outer grid via subgrid:
+   row 1 = title, row 2 = meta, row 3 = image. This makes titles align
+   with titles, metas with metas, and the image row equal to the tallest
+   uncropped image in that pair. The shorter image scales up (object-fit:
+   contain) to fill the row, with whitespace only if the aspect ratios
+   differ enough that perfect fill is impossible without cropping. */
 .research-list__item {
   min-width: 0;
 
@@ -28,7 +32,7 @@
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 3;
-    row-gap: 0.25em;
+    row-gap: 0.5em;
   }
 }
 
@@ -41,7 +45,7 @@
 }
 
 .research-list__title {
-  margin: 0 0 0.25em 0;
+  margin: 0;
   font-size: 1.05em;
   line-height: 1.3;
 
@@ -51,37 +55,23 @@
 }
 
 .research-list__meta {
-  margin: 0 0 0.5em 0;
+  margin: 0;
   font-size: 0.9em;
   font-style: italic;
   line-height: 1.4;
 }
 
-/* Teaser frame: fixed height + contain = uniform card heights, no cropping.
-   White background and thin border keep the figure framed consistently in
-   both light and dark modes (research figures often have white bg). */
 .research-list__teaser {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 220px;
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 2px;
-  padding: 0.5em;
-  box-sizing: border-box;
-  overflow: hidden;
+  display: block;
+  align-self: stretch;
+  height: 100%;
 
   img {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
     object-fit: contain;
+    object-position: center top;
     display: block;
-  }
-
-  @media (max-width: 700px) {
-    height: 200px;
   }
 }
