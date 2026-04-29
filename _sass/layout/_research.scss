@@ -9,7 +9,9 @@
   column-gap: 2.5em;
   row-gap: 1.5em;
   margin-top: 1.5em;
-  align-items: start;
+  /* align-items: stretch is the default — both cards stretch to row max
+     so the shorter card's image absorbs the meta-line height the other
+     card uses. */
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
@@ -40,13 +42,20 @@
   line-height: 1.4;
 }
 
+/* The teaser flex-grows to fill whatever vertical space remains in its
+   card. Because both cards stretch to the same row height (set by the
+   tallest card — usually the one with a meta line), the shorter card's
+   teaser cell ends up taller, and its image scales up to fill it via
+   object-fit: contain. The 200px min-height anchors the smallest size. */
 .research-list__teaser {
   display: block;
   margin-top: 0.4em;
+  flex: 1 1 auto;
+  min-height: 200px;
 
   img {
     width: 100%;
-    height: 220px;
+    height: 100%;
     object-fit: contain;
     object-position: center top;
     display: block;
