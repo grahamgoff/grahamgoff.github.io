@@ -38,7 +38,7 @@ layout: default
           <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.collection == 'publications' and page.category == 'working' %}
           {% if page.authors or page.presentations %}
-            <p>{% if page.authors %}{{ page.authors | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}{% if page.authors and page.presentations %}. {% endif %}{% if page.presentations %}Presented at {{ page.presentations | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}.</p>
+            <p><em>{% if page.authors %}{{ page.authors | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}{% if page.authors and page.presentations %}. {% endif %}{% if page.presentations %}Presented at {{ page.presentations | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}.</em></p>
           {% endif %}
         {% elsif page.collection == 'publications' %}
           {% if page.authors %}<p>{{ page.authors | markdownify | remove: "<p>" | remove: "</p>" }}</p>{% endif %}
