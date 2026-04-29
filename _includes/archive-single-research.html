@@ -6,9 +6,7 @@
       <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
     </h3>
 
-    {% if post.authors or post.presentations %}
-      <p class="research-list__meta">{% if post.authors %}{{ post.authors | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}{% if post.authors and post.presentations %}. {% endif %}{% if post.presentations %}Presented at {{ post.presentations | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}.</p>
-    {% endif %}
+    <p class="research-list__meta">{% if post.authors %}{{ post.authors | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}{% if post.authors and post.presentations %}. {% endif %}{% if post.presentations %}Presented at {{ post.presentations | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}{% if post.authors or post.presentations %}.{% else %}&nbsp;{% endif %}</p>
 
     {% if post.image %}
       <a class="research-list__teaser" href="{{ base_path }}{{ post.url }}">
