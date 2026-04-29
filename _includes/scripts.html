@@ -1,12 +1,4 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
-<script>
-  // Force light mode site-wide, ignore any stored or OS preference.
-  try { localStorage.removeItem("theme"); } catch (e) {}
-  document.documentElement.removeAttribute("data-theme");
-  document.addEventListener("DOMContentLoaded", function () {
-    document.documentElement.removeAttribute("data-theme");
-  });
-</script>
 
 {% include analytics.html %}
 

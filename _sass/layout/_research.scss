@@ -8,9 +8,8 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 2.5em;
   row-gap: 1.5em;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-  align-items: start;
+  margin-top: 1.5em;
+  align-items: stretch;
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
@@ -18,14 +17,14 @@
   }
 }
 
+/* Each card is a flex column. Cards in the same row stretch to the row's
+   max content height (CSS grid default). The teaser fills the remaining
+   space inside its card via flex: 1 — so the shorter card's image grows
+   vertically to absorb the height the other card uses for its meta line. */
 .research-list__item {
   min-width: 0;
   display: flex;
   flex-direction: column;
-}
-
-.research-list__article {
-  display: contents;
 }
 
 .research-list__title {
@@ -34,7 +33,7 @@
   line-height: 1.3;
 
   a {
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
@@ -45,24 +44,18 @@
   line-height: 1.4;
 }
 
-/* Fixed image height: both teasers display at the same height regardless
-   of natural aspect ratio. Larger images scale down via object-fit:
-   contain (no cropping). Smaller images render at natural size, top-
-   aligned within the box. */
 .research-list__teaser {
   display: block;
   margin-top: 0.4em;
+  flex: 1 1 auto;
+  min-height: 0;
 
   img {
     width: 100%;
-    height: 230px;
+    height: 100%;
+    min-height: 230px;
     object-fit: contain;
     object-position: center top;
     display: block;
   }
-}
-
-/* Tighten space below the working-papers grid before the next h2 */
-.research-grid + h2 {
-  margin-top: 0.75em;
 }
