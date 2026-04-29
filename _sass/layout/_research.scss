@@ -6,42 +6,26 @@
 .research-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: auto auto 1fr;
   column-gap: 2.5em;
-  row-gap: 0.5em;
-  margin-top: 1em;
-  margin-bottom: 2em;
+  row-gap: 1.5em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  align-items: start;
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
-    grid-template-rows: none;
     row-gap: 1.5em;
   }
 }
 
-/* On wide screens each card spans 3 rows of the outer grid via subgrid:
-   row 1 = title, row 2 = meta, row 3 = image. This makes titles align
-   with titles, metas with metas, and the image row equal to the tallest
-   uncropped image in that pair. The shorter image scales up (object-fit:
-   contain) to fill the row, with whitespace only if the aspect ratios
-   differ enough that perfect fill is impossible without cropping. */
 .research-list__item {
   min-width: 0;
-
-  @media (min-width: 701px) {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
-    row-gap: 0.5em;
-  }
+  display: flex;
+  flex-direction: column;
 }
 
 .research-list__article {
-  min-width: 0;
-
-  @media (min-width: 701px) {
-    display: contents;
-  }
+  display: contents;
 }
 
 .research-list__title {
@@ -55,23 +39,30 @@
 }
 
 .research-list__meta {
-  margin: 0;
+  margin: 0.15em 0 0 0;
   font-size: 0.9em;
   font-style: italic;
   line-height: 1.4;
 }
 
+/* Fixed image height: both teasers display at the same height regardless
+   of natural aspect ratio. Larger images scale down via object-fit:
+   contain (no cropping). Smaller images render at natural size, top-
+   aligned within the box. */
 .research-list__teaser {
   display: block;
-  align-self: stretch;
-  height: 100%;
+  margin-top: 0.4em;
 
   img {
     width: 100%;
-    height: 100%;
-    max-height: 100%;
+    height: 230px;
     object-fit: contain;
     object-position: center top;
     display: block;
   }
+}
+
+/* Tighten space below the working-papers grid before the next h2 */
+.research-grid + h2 {
+  margin-top: 0.75em;
 }
