@@ -14,7 +14,7 @@ author_profile: true
     </div>
     <div class="software-card__body">
       <p class="software-card__title">
-        <a href="https://grahamgoff.github.io/DAGassist/">DAGassist</a>: Align Causal Diagrams with Regression Models
+        <a href="https://grahamgoff.github.io/DAGassist/">DAGassist</a>: Test Robustness with Directed Acyclic Graphs
       </p>
       <p class="software-card__authors">(with <a href="https://mikedenly.com/">Mike Denly</a>)</p>
       <p class="software-card__desc">Classifies variables by causal roles, recovers a target estimand, and generates a report comparing the original model with DAG-derived adjustment sets.</p>
